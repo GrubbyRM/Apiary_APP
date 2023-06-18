@@ -1,0 +1,118 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ApiaryAPP.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="1200" Height="600"
+        x:Class="ApiaryAPP.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="ApiaryAPP"
+        
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+    <Window.Styles>
+        <StyleInclude Source="/CustomStyles.axaml" />
+    </Window.Styles>
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+    
+        <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="Auto, *">
+                      <!-- Top bar -->
+        <Grid Grid.Row="0" Background= "Orange" Height = "80" ColumnDefinitions="Auto, *">
+            <Rectangle Grid.Column="0" Fill = "Red" Width="350"></Rectangle>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" >
+                <Label FontWeight="Black">TEST</Label>
+            </StackPanel>
+        </Grid>
+        
+        <!-- App body -->
+        <Grid Grid.Row="1" ColumnDefinitions="Auto, *" >
+            <!-- Left menu -->
+            <Grid Grid.Column="0" Width="350" RowDefinitions="Auto, Auto, *" >
+                <Rectangle Grid.Row="0" Height="50"></Rectangle>
+                <Grid Grid.Row="1" Height="300" Width="350" ColumnDefinitions="Auto, Auto, Auto">
+                    <Rectangle Grid.Column="0" Width="50" ></Rectangle>
+                    <StackPanel Grid.Column="1" Width="275" Spacing="10" VerticalAlignment="Center" Orientation="Vertical">
+                        <Button Content="Dodaj przeglad" Command="{Binding NewInspectionCommand}" Classes="mainMenuButton"/>
+                        <Button Classes="mainMenuButton" >Dodaj miodobranie</Button>
+                        <Button Classes="mainMenuButton" >Historia przeglądów</Button>
+                        <Button Classes="mainMenuButton" >Historia miodobrań</Button>
+                        <Button Classes="mainMenuButton" >Zarządzanie pasieka</Button>
+                    </StackPanel>
+                    <Rectangle Grid.Column="2" Width="25"></Rectangle>
+                    
+                </Grid>
+                <Rectangle Grid.Row="2" ></Rectangle>
+            </Grid>
+            
+            <!-- Main Window -->
+            <Grid Grid.Column="1" Background="white" RowDefinitions="Auto, *, Auto">
+                <Panel Margin="40">
+                    <DockPanel>
+                        <StackPanel>
+                            <TextBox Watermark="ID ula" Text="{Binding BeehiveId}"></TextBox>
+                            <TextBox Watermark="Data przegladu" Text="{Binding InspectionDate}"></TextBox>
+                            <TextBox Watermark="Matka" Text="{Binding QueenBee}"></TextBox>
+                            <TextBox Watermark="Mateczniki" Text="{Binding QueenCells}"></TextBox>
+                            <!-- <CheckBox Content="Matka?" ></CheckBox> -->
+                            <!-- <CheckBox Content="Mateczniki"></CheckBox> -->
+                        </StackPanel>
+                        <Button Command="{Binding Cancel}">Cancel</Button>
+                        <Button Command="{Binding Ok}">Ok</Button>
+                        
+                        <TextBox Text="{Binding InputBeehiveId}" />
+                        <!-- <Button Content="Show" Command="{Binding ShowCommand}" /> -->
+                        
+                        <!-- <TextBlock Text="{Binding InspectionDataText}" /> -->
+                        
+                        <Button Content="Show" Command="{Binding ShowCommand}" />
+                        <!-- <TextBlock Text="{Binding InspectionDataText}" IsVisible="{Binding IsShowButtonClicked}" /> -->
+                        <!-- <TextBlock Text="{Binding InspectionData}" IsVisible="{Binding IsShowButtonClicked}" /> -->
+                        <TextBlock Text="{Binding InspectionDataText}" IsVisible="{Binding IsShowButtonClicked}" />
+                        <!-- <TextBlock Text="{Binding InspectionData.beehiveId}" /> -->
+                        <!-- <TextBlock Text="{Binding InspectionData.queenBee}" /> -->
+                        <!-- <TextBlock Text="{Binding InspectionData.inspectionDate}" /> -->
+                        <!-- <TextBlock Text="{Binding InspectionData.queenCells}" /> -->
+
+                    </DockPanel>
+                </Panel>
+                <!-- <Rectangle Grid.Row="0" Height="50" Fill="Red"></Rectangle> -->
+                <!-- <Grid Grid.Row="1" Background="Orange" ColumnDefinitions="Auto, *, Auto, *, Auto"> -->
+                <!--     <Rectangle Grid.Column="0" Fill="Blue" Width="50"></Rectangle> -->
+                <!--     ~1~ Inspections data @1@ -->
+                <!--     <Rectangle Grid.Column="1" Fill="White"></Rectangle> -->
+                <!--     <Rectangle Grid.Column="2" Width="50" Fill="Blue"></Rectangle> -->
+                <!--     <Grid Grid.Column="3" RowDefinitions="*, Auto, 2*" > -->
+                <!--         ~1~ Timer? @1@ -->
+                <!--         <Rectangle Grid.Row="0" Fill="White"></Rectangle> -->
+                <!--         <Rectangle Grid.Row="1" Height="50" Fill="Blue"></Rectangle> -->
+                <!--         ~1~ Random fact about Bees @1@ -->
+                <!--         <Rectangle Grid.Row="2" Fill="White"></Rectangle> -->
+                <!--     </Grid> -->
+                <!--     <Rectangle Grid.Column="4" Width="50" Fill = "Blue"></Rectangle> -->
+                <!-- </Grid> -->
+                <!-- <Grid Grid.Row="2" Height="50" Background="Red"></Grid> -->
+                
+            </Grid>
+        </Grid>
+    </Grid>
+    
+    
+</Panel>
+</Window>
