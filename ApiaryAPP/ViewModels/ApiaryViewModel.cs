@@ -1,6 +1,6 @@
 namespace ApiaryAPP.ViewModels;
 
-public class NewInspectionViewModel
+public class ApiaryViewModel
 {
     
 }
