@@ -16,4 +16,5 @@
         <Setter Property="HorizontalAlignment" Value="Right"></Setter>
         
     </Style>
+    
 </Styles>

@@ -7,8 +7,10 @@ namespace ApiaryAPP;
 
 public class ViewLocator : IDataTemplate
 {
+    public bool SupportsRecycling => false;
     public IControl Build(object data)
     {
+        
         var name = data.GetType().FullName!.Replace("ViewModel", "View");
         var type = Type.GetType(name);
 

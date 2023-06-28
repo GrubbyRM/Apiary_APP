@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:ApiaryAPP.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ApiaryAPP.Views.HistoryView"
+        Title="HistoryView">
+    <Design.DataContext>
+        <viewModels:InspectionViewModel/>
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+        <TextBox Height="100" Grid.Row="0" Watermark="PODAJ ILOSC" Text="{Binding InspectionData}"/>
+        <Rectangle Grid.Row="1" Height="100" Fill="Red"></Rectangle>
+        <Button Grid.Row="2" Command="{Binding ShowCommand}">Szukaj</Button>
+        <TextBlock Grid.Row="3" Text="{Binding InspectionDate}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="4" Text="{Binding QueenBee}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="5" Text="{Binding QueenCells}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="6" Text="{Binding Eggs}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="7" Text="{Binding OpenBrood}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="8" Text="{Binding ClosedBrood}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="9" Text="{Binding DroneBrood}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="10" Text="{Binding FreshHoney}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="11" Text="{Binding CappedHoney}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="12" Text="{Binding BeeBread}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="13" Text="{Binding Frames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="14" Text="{Binding BeehiveBoxes}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="15" Text="{Binding HoneyFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="16" Text="{Binding BroodFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="17" Text="{Binding BreadFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <TextBlock Grid.Row="18" Text="{Binding WaxFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
+        <Button Grid.Row="19" Content="Nastepny"/>
+        
+    </Grid>
+</Window>

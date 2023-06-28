@@ -1,3 +1,4 @@
+using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -10,23 +11,22 @@ public class InspectionModel
     [BsonElement("BeehiveId")]
     public string beehiveId { get; set; }
 
-    public string inspectionDate { get; set; }
-    public string queenBee { get; set; }
-    public string queenCells { get; set; }
-    // public bool Eggs { get; set; }
-    // public bool OpenBrood { get; set; }
-    // public bool ClosedBrood { get; set; }
-    // public bool DroneBrood { get; set; }
-    // public bool FreshHoney { get; set; }
-    // public bool CappedHoney { get; set; }
-    // public bool BeeBread { get; set; }
-    //
-    // public int Frames { get; set; }
-    // public int BeehiveBoxes { get; set; }
-    // public int HoneyFrames { get; set; }
-    // public int BroodFrames { get; set; }
-    // public int BreadFrames { get; set; }
-    // public int WaxFrames { get; set; }
+    public DateTime inspectionDate { get; set; }
+    public bool queenBee { get; set; }
+    public bool queenCells { get; set; }
+    public bool eggs { get; set; }
+    public bool openBrood { get; set; }
+    public bool closedBrood { get; set; }
+    public bool droneBrood { get; set; }
+    public bool freshHoney { get; set; }
+    public bool cappedHoney { get; set; }
+    public bool beeBread { get; set; }
     
+    public int frames { get; set; }
+    public int beehiveBoxes { get; set; }
+    public int honeyFrames { get; set; }
+    public int broodFrames { get; set; }
+    public int breadFrames { get; set; }
+    public int waxFrames { get; set; }
 
 }
