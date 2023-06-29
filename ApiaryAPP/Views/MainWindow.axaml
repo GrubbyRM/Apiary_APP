@@ -3,75 +3,68 @@
         xmlns:vm="using:ApiaryAPP.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:ApiaryAPP.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Width="1200" Height="600"
         x:Class="ApiaryAPP.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="ApiaryAPP"
-        
-        TransparencyLevelHint="AcrylicBlur"
-        Background="Transparent"
-        WindowStartupLocation="CenterScreen"
-        >
+
+        WindowStartupLocation="CenterScreen">
     <Window.Styles>
         <StyleInclude Source="/CustomStyles.axaml" />
     </Window.Styles>
-    <Panel>
-        <ExperimentalAcrylicBorder IsHitTestVisible="False">
-            <ExperimentalAcrylicBorder.Material>
-                <ExperimentalAcrylicMaterial
-                    BackgroundSource="Digger"
-                    TintColor="Black"
-                    TintOpacity="1"
-                    MaterialOpacity="0.65" />
-            </ExperimentalAcrylicBorder.Material>
-        </ExperimentalAcrylicBorder>
-    
-        <Design.DataContext>
+    <Window.DataContext>
+        <vm:ApiaryViewModel />
+    </Window.DataContext>
+    <Window.Background>
+        <ImageBrush Source="../Assets/MainWindowBackground.jpg" Stretch="UniformToFill"></ImageBrush>
+    </Window.Background>
+
+
+    <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
+        <vm:ApiaryViewModel />
     </Design.DataContext>
-    
+
     <Grid RowDefinitions="Auto, *">
-                      <!-- Top bar -->
-        <Grid Grid.Row="0" Background= "Orange" Height = "80" ColumnDefinitions="Auto, *">
-            <Rectangle Grid.Column="0" Fill = "Red" Width="350"></Rectangle>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" >
-                <Label FontWeight="Black">TEST</Label>
+        <!-- Top bar -->
+        <Grid Grid.Row="0" Background="#80000000" Height="80" ColumnDefinitions="Auto, *">
+            <Grid Grid.Column="0" Width="200">
+                <Image Source="../Assets/Logo.png" Width="60" Height="60" VerticalAlignment="Center" />
+            </Grid>
+            <!-- <Rectangle Grid.Column="0" Width="200"></Rectangle> -->
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Grid.Column="1">
+                <!-- <Label FontWeight="Bold" Foreground="White" HorizontalAlignment="Left"  FontSize="18">Apiary APP - Aplikacja do zarządzanie przeglądami w Pasiece</Label> -->
+                <TextBlock FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" TextAlignment="Left"
+                           FontSize="20" Text="Apiary APP - Aplikacja do zarządzanie przeglądami w Pasiece">
+                </TextBlock>
             </StackPanel>
         </Grid>
-        
+
+
         <!-- App body -->
-        <Grid Grid.Row="1" ColumnDefinitions="Auto, *" >
+        <Grid Grid.Row="1">
             <!-- Left menu -->
-            <Grid Grid.Column="0" Width="350" RowDefinitions="Auto, Auto, *" >
+            <Grid Grid.Column="0" Width="350" RowDefinitions="Auto, Auto, *">
                 <Rectangle Grid.Row="0" Height="50"></Rectangle>
                 <Grid Grid.Row="1" Height="300" Width="350" ColumnDefinitions="Auto, Auto, Auto">
-                    <Rectangle Grid.Column="0" Width="50" ></Rectangle>
-                    <StackPanel Grid.Column="1" Width="275" Spacing="10" VerticalAlignment="Center" Orientation="Vertical">
-                        <Button Content="Dodaj przeglad" Classes="mainMenuButton" Click="NewInspection"/>
-                        <Button Content ="Historia przeglądów" Classes="mainMenuButton" Click="History"/>
-                        <Button Classes="mainMenuButton" >Zarządzanie pasieka</Button>
+                    <Rectangle Grid.Column="0" Width="50"></Rectangle>
+                    <StackPanel Grid.Column="1" Width="275" Spacing="10" VerticalAlignment="Center"
+                                Orientation="Vertical">
+                        <Button Content="Dodaj przeglad" Classes="mainMenuButton" Click="NewInspection" />
+                        <Button Content="Historia przeglądów" Classes="mainMenuButton" Click="History" />
+                        <Button Classes="mainMenuButton" Click="Apiary">Zarządzanie pasieka</Button>
+                        <Button Classes="mainMenuButton" Click="CloseMainWindow">Wyjście</Button>
                     </StackPanel>
-                    <!-- <Rectangle Grid.Column="2" Width="25" Fill="Yellow"></Rectangle> -->
-                    <!-- <DockPanel Grid.Column="2" x:Name="windowContainer"> -->
-                    <!--      -->
-                    <!-- </DockPanel> -->
-                    
                 </Grid>
-                <Rectangle Grid.Row="2" ></Rectangle>
+                <Rectangle Grid.Row="2"></Rectangle>
             </Grid>
             
-            <!-- Main Window -->
-            <Grid Grid.Column="1" Background="white" RowDefinitions="Auto, *, Auto" >
-                <DockPanel Grid.Row="0" Grid.Column="0" x:Name="windowContainer">
-                    <Rectangle></Rectangle>
-                </DockPanel>
-            </Grid>
         </Grid>
     </Grid>
-    
-    
-</Panel>
+
 </Window>

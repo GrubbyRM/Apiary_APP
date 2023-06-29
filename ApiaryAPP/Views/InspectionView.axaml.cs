@@ -7,6 +7,9 @@ namespace ApiaryAPP.Views;
 
 public partial class InspectionView : Window
 {
+    private ComboBox _comboBox;
+    
+    
     public InspectionView()
     {
         InitializeComponent();
@@ -18,6 +21,7 @@ public partial class InspectionView : Window
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
+        _comboBox = this.FindControl<ComboBox>("ComboBox");
     }
 
     private void CloseInspectionView(object sender, RoutedEventArgs e)

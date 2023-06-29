@@ -7,7 +7,7 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
-using MainWindowViewModel = ApiaryAPP.ViewModels.MainWindowViewModel;
+// using MainWindowViewModel = ApiaryAPP.ViewModels.MainWindowViewModel;
 
 namespace ApiaryAPP.Views;
 
@@ -42,7 +42,7 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
             DataContext = new InspectionViewModel(),
             Width = 360,
             Height = 900,
-            // CanResize = false
+            CanResize = false
         };
         window.Show();
         window.Activate();
@@ -56,6 +56,25 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
         };
         window.Show();
         window.Activate();
+    }
+    
+    private void Apiary(object sender, RoutedEventArgs e)
+    {
+        var window = new ApiaryView()
+        {
+            DataContext = new ApiaryViewModel(),
+            Width = 600,
+            Height = 600,
+            CanResize = false
+        };
+        window.Show();
+        window.Activate();
+    }
+    
+    private void CloseMainWindow(object sender, RoutedEventArgs e)
+    {
+        ((Window)this.VisualRoot).Close();
+
     }
     
     

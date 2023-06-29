@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:ApiaryAPP.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ApiaryAPP.Views.ApiaryView"
+        Title="ApiaryView">
+    <Design.DataContext>
+        <viewModels:ApiaryViewModel />
+    </Design.DataContext>
+    <Window.Styles>
+        <StyleInclude Source="/CustomStyles.axaml" />
+    </Window.Styles>
+    <Window.Background>
+        <ImageBrush Source="../Assets/MainWindowBackground.jpg" Stretch="UniformToFill" Opacity="0.5"></ImageBrush>
+    </Window.Background>
+
+    <Grid RowDefinitions="Auto, Auto, Auto">
+        <Grid Grid.Row="0" Background="#80000000" Height="80" ColumnDefinitions="Auto, *">
+            <Grid Grid.Column="0" Width="200">
+                <Image Source="../Assets/Logo.png" Width="60" Height="60" VerticalAlignment="Center" />
+            </Grid>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Grid.Column="1">
+                <TextBlock FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" TextAlignment="Left"
+                           FontSize="20" Text="ApiaryAPP - Historia przeglądów">
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" Spacing="10" Width="300" VerticalAlignment="Center">
+            <Rectangle Grid.Row="0"></Rectangle>
+            <TextBlock>Podaj ID ula</TextBlock>
+            <TextBox Grid.Row="1" Text="{Binding BeehiveId}"></TextBox>
+            <TextBlock>Rasa matki</TextBlock>
+            <TextBox Grid.Row="2" Text="{Binding QueenBee}"></TextBox>
+            <TextBlock>Rok matki</TextBlock>
+            <TextBox Grid.Row="3" Text="{Binding QueenBeeYear}"></TextBox>
+            <TextBlock>Dostawca matki</TextBlock>
+            <TextBox Grid.Row="4" Text="{Binding QueenBeeProvider}"></TextBox>
+            <TextBlock>Typ matki</TextBlock>
+            <TextBox Grid.Row="5" Text="{Binding QueenBeeType}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Vertical" Spacing="10" Width="300" VerticalAlignment="Center">
+            <Rectangle></Rectangle>
+            <Button Content="Zapisz Ul" Command="{Binding SaveBeehive }" Classes="mainMenuButton"></Button>
+            <Button Content="Usun Ul" Command="{Binding DeleteBeehive }" Classes="mainMenuButton"></Button>
+        </StackPanel>
+    </Grid>
+
+
+</Window>

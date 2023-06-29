@@ -7,29 +7,123 @@
         x:Class="ApiaryAPP.Views.HistoryView"
         Title="HistoryView">
     <Design.DataContext>
-        <viewModels:InspectionViewModel/>
+        <viewModels:InspectionViewModel />
     </Design.DataContext>
-    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
-        <TextBox Height="100" Grid.Row="0" Watermark="PODAJ ILOSC" Text="{Binding InspectionData}"/>
-        <Rectangle Grid.Row="1" Height="100" Fill="Red"></Rectangle>
-        <Button Grid.Row="2" Command="{Binding ShowCommand}">Szukaj</Button>
-        <TextBlock Grid.Row="3" Text="{Binding InspectionDate}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="4" Text="{Binding QueenBee}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="5" Text="{Binding QueenCells}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="6" Text="{Binding Eggs}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="7" Text="{Binding OpenBrood}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="8" Text="{Binding ClosedBrood}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="9" Text="{Binding DroneBrood}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="10" Text="{Binding FreshHoney}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="11" Text="{Binding CappedHoney}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="12" Text="{Binding BeeBread}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="13" Text="{Binding Frames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="14" Text="{Binding BeehiveBoxes}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="15" Text="{Binding HoneyFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="16" Text="{Binding BroodFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="17" Text="{Binding BreadFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <TextBlock Grid.Row="18" Text="{Binding WaxFrames}" IsVisible="{Binding IsShowButtonClicked}"></TextBlock>
-        <Button Grid.Row="19" Content="Nastepny"/>
-        
+    <Window.Background>
+        <ImageBrush Source="../Assets/InspectionViewBackground.jpeg" Stretch="UniformToFill"></ImageBrush>
+    </Window.Background>
+    <Window.Styles>
+        <StyleInclude Source="/CustomStyles.axaml" />
+    </Window.Styles>
+
+    <Grid RowDefinitions="Auto, Auto, Auto">
+        <!-- Top bar -->
+        <Grid Grid.Row="0" Background="#80000000" Height="80" ColumnDefinitions="Auto, *">
+            <Grid Grid.Column="0" Width="200">
+                <Image Source="../Assets/Logo.png" Width="60" Height="60" VerticalAlignment="Center" />
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Grid.Column="1">
+                <!-- <Label FontWeight="Bold" Foreground="White" HorizontalAlignment="Left"  FontSize="18">Apiary APP - Aplikacja do zarządzanie przeglądami w Pasiece</Label> -->
+                <TextBlock FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" TextAlignment="Left"
+                           FontSize="20" Text="Historia przeglądów">
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <!-- Select beehive -->
+        <Grid Grid.Row="1" ColumnDefinitions="*, 2*">
+            <StackPanel Grid.Column="0" Orientation="Vertical" Spacing="20" HorizontalAlignment="Center"
+                        Margin="100 200 50 50">
+                <ComboBox Grid.Column="0" Items="{Binding BeehiveIds}" SelectedIndex="0"
+                          SelectedItem="{Binding InspectionData, Mode=TwoWay}" Width="250">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <ComboBoxItem Content="{Binding}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Grid.Column="0" Command="{Binding ShowCommand}" Classes="mainMenuButton">Szukaj</Button>
+                <Button Grid.Column="0" Command="{Binding YesButtonClicked}" Classes="mainMenuButton">Następny</Button>
+                <Button Grid.Column="0" Command="{Binding NoButtonClicked}" Classes="mainMenuButton">Poprzedni</Button>
+            </StackPanel>
+            <!-- Beehive info -->
+            <Grid Grid.Column="1" Background="#95FFFFFF" Margin="50 50 100 50" Width="500">
+                <StackPanel Orientation="Vertical" Spacing="20" HorizontalAlignment="Center" Margin="10">
+                    <Grid ColumnDefinitions="*, Auto *">
+                        <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" Spacing="15">
+                            <TextBlock>Data Przeglądu</TextBlock>
+                            <TextBlock>Matka pszczela</TextBlock>
+                            <TextBlock>Mateczniki</TextBlock>
+                            <TextBlock>Jajeczka</TextBlock>
+                            <TextBlock>Czerw otwarty</TextBlock>
+                            <TextBlock>Czerw kryty</TextBlock>
+                            <TextBlock>Czerw trutowy</TextBlock>
+                            <TextBlock>Nakrop</TextBlock>
+                            <TextBlock>Miód zasklepiony</TextBlock>
+                            <TextBlock>Pierzga</TextBlock>
+                            <TextBlock>Ile ramek</TextBlock>
+                            <TextBlock>Ile korpusów</TextBlock>
+                            <TextBlock>Ile ramek z miodem</TextBlock>
+                            <TextBlock>Ile ramek z czerwiem</TextBlock>
+                            <TextBlock>Ile ramek z pierzgą</TextBlock>
+                            <TextBlock>Ile węzy</TextBlock>
+                        </StackPanel>
+                        <Rectangle Grid.Column="1" Width="50"></Rectangle>
+                        <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" Spacing="15">
+                            <TextBlock FontWeight="Bold" Grid.Row="3" Text="{Binding InspectionDate}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="4" Text="{Binding QueenBee}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="5" Text="{Binding QueenCells}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="6" Text="{Binding Eggs}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="7" Text="{Binding OpenBrood}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="8" Text="{Binding ClosedBrood}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="9" Text="{Binding DroneBrood}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="10" Text="{Binding FreshHoney}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="11" Text="{Binding CappedHoney}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="12" Text="{Binding BeeBread}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="13" Text="{Binding Frames}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="14" Text="{Binding BeehiveBoxes}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="15" Text="{Binding HoneyFrames}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="16" Text="{Binding BroodFrames}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="17" Text="{Binding BreadFrames}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                            <TextBlock FontWeight="Bold" Grid.Row="18" Text="{Binding WaxFrames}"
+                                       IsVisible="{Binding IsShowButtonClicked}">
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Window>

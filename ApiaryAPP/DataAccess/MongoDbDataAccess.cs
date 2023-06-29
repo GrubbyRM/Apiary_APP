@@ -7,7 +7,7 @@ public class MongoDbDataAccess
 {
     private const string ConnectionString =
         "mongodb+srv://bjanikk:Fovnvs7sQhmwvWao@apiaryapp.o2vnmgi.mongodb.net/?retryWrites=true&w=majority";
-    
+
     private const string DatabaseName = "ApiaryAPP";
     // private const string InspectionCollection = "inspections";
 

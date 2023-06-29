@@ -20,25 +20,25 @@ using ReactiveUI;
 
 namespace ApiaryAPP.ViewModels;
 
-     public class InspectionCollection
-     {
-         private List<InspectionModel> inspections;
-     
-         public InspectionCollection()
-         {
-             inspections = new List<InspectionModel>();
-         }
-     
-         public IEnumerable<InspectionModel> GetItems()
-         {
-             return inspections;
-         }
-     
-         public void AddInspection(InspectionModel inspection)
-         {
-             inspections.Add(inspection);
-         }
-     }
+public class InspectionCollection
+{
+    private List<InspectionModel> inspections;
+
+    public InspectionCollection()
+    {
+        inspections = new List<InspectionModel>();
+    }
+
+    public IEnumerable<InspectionModel> GetItems()
+    {
+        return inspections;
+    }
+
+    public void AddInspection(InspectionModel inspection)
+    {
+        inspections.Add(inspection);
+    }
+}
 
 public class MainWindowViewModel : ViewModelBase
 {
@@ -46,7 +46,6 @@ public class MainWindowViewModel : ViewModelBase
     {
         var inspectionWindow = new InspectionViewModel();
     }
-    
-    public InspectionViewModel inspectionWindow { get; }
 
+    public InspectionViewModel inspectionWindow { get; }
 }

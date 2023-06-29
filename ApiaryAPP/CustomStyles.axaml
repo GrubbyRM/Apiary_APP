@@ -14,6 +14,9 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        <!-- <Setter Property="Opacity" Value="0.7"></Setter> -->
+        <Setter Property="Background" Value="#80000000"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
         
     </Style>
     

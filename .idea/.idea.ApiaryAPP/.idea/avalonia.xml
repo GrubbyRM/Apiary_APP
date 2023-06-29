@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="ApiaryAPP/App.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/CustomStyles.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/ApiaryAPPView.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/ApiaryView.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/CustomStyles.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/HistoryView.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/InspectionView.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/MainWindow.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/NewInspectionWindow.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/TestConnectionWindow.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+        <entry key="ApiaryAPP/Views/TestDatabaseConnectionView.axaml" value="ApiaryAPP/ApiaryAPP.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
